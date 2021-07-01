@@ -1,12 +1,16 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import React, { useCallback, useEffect, useState } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ErrorModal from "../../components/ErrorModal/ErrorModal";
+import { BlockDetail } from "../../types/BlockDetail";
+import classes from "./BlockDetails.module.css";
+import Button from "../../components/Button/Button";
 
 const BlockDetails = React.memo(() => {
+  const history = useHistory();
   const { hash } = useParams() as { hash: string };
-  const [blockDetails, setBlockDetails] = useState();
+  const [blockDetails, setBlockDetails] = useState<undefined | BlockDetail>();
   const { loading, sendRequest } = useHttp();
   const [error, setError] = useState<undefined | string>();
 
@@ -23,14 +27,31 @@ const BlockDetails = React.memo(() => {
     getBlockDetails();
   }, [getBlockDetails]);
 
+  if (loading || !blockDetails) return <LoadingSpinner />;
+  if (error)
+    return (
+      <ErrorModal removeHandler={() => setError(undefined)}>{error}</ErrorModal>
+    );
+
+  let blockDetailsToRender = [];
+  const transactions = blockDetails!.tx;
+
+  for (let key in blockDetails) {
+    if (key !== "tx") {
+      //@ts-ignore
+      blockDetailsToRender.push({ attribute: key, value: blockDetails[key] });
+    }
+  }
+
   return (
     <>
-      {loading && <LoadingSpinner />}
-      {error && (
-        <ErrorModal removeHandler={() => setError(undefined)}>
-          {error}
-        </ErrorModal>
-      )}
+      <Button title="Go back!" onClick={() => history.push("/")} />
+      <h2>Block Details: (hash: {hash})</h2>
+      {blockDetailsToRender.map(({ attribute, value }) => (
+        <div>
+          {attribute}: <span className={classes.blockDetailValue}>{value}</span>
+        </div>
+      ))}
     </>
   );
 });
