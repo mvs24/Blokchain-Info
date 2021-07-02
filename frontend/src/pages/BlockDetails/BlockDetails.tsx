@@ -5,7 +5,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ErrorModal from "../../components/ErrorModal/ErrorModal";
 import { BlockDetail } from "../../types/BlockDetail";
 import classes from "./BlockDetails.module.css";
-import Button, { ButtonState } from "../../components/Button/Button";
+import Button from "../../components/Button/Button";
 import { API_ENDPOINT } from "../../constants";
 
 const BlockDetails = React.memo(() => {
