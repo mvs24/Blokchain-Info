@@ -12,9 +12,9 @@ after_success:
   - docker build -t marius24/frontendblokchaininfo ./frontend
   - docker build -t marius24/nginxblokchaininfo ./nginx
   - docker build -t marius24/backendblokchaininfo .
-  # Log in to the docker CLI
+
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # Take those images and push them to docker hub
+
   - docker push marius24/frontendblokchaininfo
   - docker push  marius24/nginxblokchaininfo
   - docker push marius24/backendblokchaininfo
