@@ -38,7 +38,7 @@ We need to configure travis-ci for this and create a Dockerrun.aws.json file for
 #Docker Configuration:
 * We have dockerfiles on root directory (backend) & frontend for building the backend and frontend containers.<br />
 * On nginx/default.conf is the configuration for forwarding the traffic to server/client. There is also a Dockerfile to create the nginx container.<br />
-* Docker-compose.yaml contains the configuration for all the containers: frontend, backend, redis and ngix.<br />
+* Docker-compose.yaml contains the configuration for all the containers: frontend, backend, redis and nginx.<br />
 
 #Frontend Design.
 Everything starts on src/App.tsx.<br />
