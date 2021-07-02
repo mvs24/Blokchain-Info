@@ -18,3 +18,4 @@ after_success:
   - docker push marius24/frontendblokchaininfo
   - docker push  marius24/nginxblokchaininfo
   - docker push marius24/backendblokchaininfo
+# READY FOR DEPLOMENT CONFIGURATION TO AWS
