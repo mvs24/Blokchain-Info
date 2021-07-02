@@ -29,7 +29,7 @@ Everything starts with an express server on server.ts file.<br />
 I have specified the /api/v1/blocks route and the code for this route is on controllers/blocks.ts.<br />
 1- Error Handling: I have used global error handling with express.<br />
 For this I have created a HTTPError class which extends Error class for operational errors && asyncWrapper HOF to not repeat try & catch blocks every time.<br />
-I have seperated development errors from production errors via different responses. (controllers/error.ts) file.<br />
+I have seperated development errors from production errors. (controllers/error.ts) file.<br />
 2- Caching: I have used REDIS for caching by creating a Redis class (redis.ts) file.<br />
 3- Continuos Integration: I have configured travis-ci for continuos integration & I want to mention how to do Continuos deployment to AWS.<br />
 We need to configure travis-ci for this and create a Dockerrun.aws.json file for configuration (aws & docker) for deployment to elastic beanstalk.<br />
