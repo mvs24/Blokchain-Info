@@ -11,7 +11,6 @@ To run this project you need to follow these steps: <br />
 4- Run: cd frontend <br />
 5- Run: npm i (to install all the frontend dependencies) <br />
 6- Run: cd .. <br />
-STEPS 3-6 (if you want to work with the code) <br />
 7- Run: docker-compose up --build, and wait until everything is finished running. <br />
 That's it, so easy just 1 command (docker-compose up --build) on the root directory (Blokchain-Info) <br />
 Now open the browser on: localhost:3050 (3050 on our host points to port 80 inside the NGINX container) <br />
