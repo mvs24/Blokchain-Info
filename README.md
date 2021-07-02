@@ -1,6 +1,7 @@
 # Blokchain-Info 
 This project uses Docker & Docker compose. <br />
 To run this project you need to have Docker installed on your computer. <br />
+You can also run this project by installing dependencies on the frontend and on the backend and adding a proxy on the frontend package.json "proxy":"http://localhost:5000" to point to our API.
 
 To run this project you need to follow these steps: <br />
 
