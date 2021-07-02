@@ -6,6 +6,7 @@ import ErrorModal from "../../components/ErrorModal/ErrorModal";
 import { BlockDetail } from "../../types/BlockDetail";
 import classes from "./BlockDetails.module.css";
 import Button, { ButtonState } from "../../components/Button/Button";
+import { API_ENDPOINT } from "../../constants";
 
 const BlockDetails = React.memo(() => {
   const history = useHistory();
@@ -16,7 +17,10 @@ const BlockDetails = React.memo(() => {
 
   const getBlockDetails = useCallback(async () => {
     try {
-      const { data } = await sendRequest("get", `/api/v1/blocks/${hash}`);
+      const { data } = await sendRequest(
+        "get",
+        `${API_ENDPOINT}/blocks/${hash}`
+      );
       setBlockDetails(data);
     } catch (errorMessage) {
       setError(errorMessage);
@@ -35,7 +39,6 @@ const BlockDetails = React.memo(() => {
   if (loading || !blockDetails) return <LoadingSpinner />;
 
   let blockDetailsToRender = [];
-  const transactions = blockDetails!.tx;
 
   for (let key in blockDetails) {
     if (key !== "tx") {

@@ -7,6 +7,7 @@ import { Block } from "../../types/Block";
 import Pagination from "../../components/Pagination/Pagination";
 import classes from "./Home.module.css";
 import Input from "../../components/Input/Input";
+import { API_ENDPOINT } from "../../constants";
 
 const Home = () => {
   const [limit, setLimit] = useState(5);
@@ -21,7 +22,7 @@ const Home = () => {
     try {
       const { data, numberOfPages } = await sendRequest(
         "get",
-        `/api/v1/blocks?timestamp=${timestamp}&page=${page}&limit=${limit}`
+        `${API_ENDPOINT}/blocks?timestamp=${timestamp}&page=${page}&limit=${limit}`
       );
       setBlocks(data);
       setNumberOfPages(numberOfPages);
