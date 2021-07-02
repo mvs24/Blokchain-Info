@@ -3,3 +3,11 @@
   align-items: center;
   padding: 30px;
 }
+.timestampContainer {
+  padding: 15px;
+}
+.heading {
+  color: rgb(83, 80, 80);
+  padding: 10px;
+  text-align: center;
+}

@@ -20,7 +20,7 @@ const Button = (props: Props) => {
   const { title, color, backgroundColor, state, onClick, disabled } = props;
   const classNames = [classes.btn];
   if (state) classNames.push(classes[state]);
-  else classNames.push(classes["pink"]);
+  else classNames.push(classes["blue"]);
 
   return (
     <button

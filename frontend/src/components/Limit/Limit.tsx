@@ -6,7 +6,7 @@ const Limit = ({
 }: {
   onLimitChange: (limit: number) => void;
 }) => {
-  const limitOptions = [10, 25, 50, 100].map((el) => ({
+  const limitOptions = [5, 10, 25, 50, 100].map((el) => ({
     value: el,
     label: el,
   }));

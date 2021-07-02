@@ -25,22 +25,25 @@ export const getAllBlocks = asyncWrapper(
       ? parseInt(req.query.timestamp as string)
       : Date.now();
     const page = req.query.page ? parseInt(req.query.page as string) : 1;
-    const limit = req.query.limit ? parseInt(req.query.limit as string) : 10;
+    const limit = req.query.limit ? parseInt(req.query.limit as string) : 5;
     const redisKey = `${timestamp.toString()}-${page}-${limit}`;
 
     if (await redisClient.has(redisKey)) {
-      const data = (await redisClient.getData(redisKey)) as Block[];
-      const numberOfPages = Math.floor(data.length / limit);
-      return sendAllBlocksResponse(res, data, numberOfPages);
+      const data = (await redisClient.getData(redisKey)) as {
+        blocks: Block[];
+        numberOfPages: number;
+      };
+
+      return sendAllBlocksResponse(res, data.blocks, data.numberOfPages);
     }
 
     let { data: blocks } = await axios(
       `https://blockchain.info/blocks/${timestamp}?format=json`
     );
-    const numberOfPages = Math.floor(blocks.length / limit);
+    const numberOfPages = Math.ceil(blocks.length / limit);
 
     blocks = APIFeatures.paginate(blocks, page, limit);
-    redisClient.set(redisKey, blocks);
+    redisClient.set(redisKey, { blocks, numberOfPages });
 
     sendAllBlocksResponse(res, blocks, numberOfPages);
   }

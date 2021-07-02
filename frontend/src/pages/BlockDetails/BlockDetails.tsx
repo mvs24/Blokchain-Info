@@ -5,7 +5,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ErrorModal from "../../components/ErrorModal/ErrorModal";
 import { BlockDetail } from "../../types/BlockDetail";
 import classes from "./BlockDetails.module.css";
-import Button from "../../components/Button/Button";
+import Button, { ButtonState } from "../../components/Button/Button";
 
 const BlockDetails = React.memo(() => {
   const history = useHistory();
@@ -45,7 +45,7 @@ const BlockDetails = React.memo(() => {
   }
 
   return (
-    <>
+    <div className={classes.blockDetailsContainer}>
       <Button title="Go back!" onClick={() => history.push("/")} />
       <h2>Block Details: (hash: {hash})</h2>
       {blockDetailsToRender.map(({ attribute, value }) => (
@@ -53,7 +53,7 @@ const BlockDetails = React.memo(() => {
           {attribute}: <span className={classes.blockDetailValue}>{value}</span>
         </div>
       ))}
-    </>
+    </div>
   );
 });
 

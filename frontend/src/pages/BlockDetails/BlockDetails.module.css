@@ -2,3 +2,7 @@
   color: black;
   font-weight: 400;
 }
+
+.blockDetailsContainer {
+  padding: 30px;
+}
