@@ -30,7 +30,7 @@ I have specified the /api/v1/blocks route and the code for this route is on cont
 For this I have created a HTTPError class which extends Error class for operational errors && asyncWrapper HOF to not repeat try & catch blocks every time.<br />
 I have seperated development errors from production errors. (controllers/error.ts) file.<br />
 * Caching: I have used REDIS for caching by creating a Redis class (redis.ts) file.<br />
-* Logging: On uncaughtExceptions, unhandledRejection and operational errors or server errors. We can use morgan or winston for logging. 
+* Logging: On uncaughtExceptions, unhandledRejections and operational errors or server errors. We can use morgan or winston for logging. 
 * Continuos Integration & Testing: I have configured travis-ci for continuos integration. In here I have created a docker container to run all tests on the frontend (we can do the same thing for the backend also, using supertest, mocha or chai) and get all statistics about tests on travis platform.
 * I want to mention how to do Continuos deployment to AWS. We need to configure travis-ci for this and create a Dockerrun.aws.json file for configuration (aws & docker) for deployment to elastic beanstalk.<br />
 * Production: We can use PM2 for monitoring & scaling our Node.JS server through clustering.
