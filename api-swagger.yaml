@@ -1,0 +1,61 @@
+swagger: "2.0"
+info:
+  description: "This is the API for BlockChain Info Project"
+  version: "1.0.0"
+  title: "BlockChain Info"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "mariusvasili24@gmail.com"
+host: localhost:3050
+basePath: /api/v1
+schemes:
+  - "http"
+paths:
+  /api/v1/blocks:
+    get:
+      tags:
+        - "blocks"
+      summary: "Get all blocks based on specified timestamp"
+      operationId: "getBlocks"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "timestamps"
+          type: "integer"
+          description: "Timestamp in milliseconds, if not specified Date.now"
+          required: false
+        - in: "query"
+          name: "page"
+          type: "integer"
+          description: "blocks on specific page"
+          required: false
+        - in: "query"
+          type: "string"
+          name: "integer"
+          description: "how many blocks per page"
+          required: false
+      responses:
+        "200":
+          description: "Get all blocks"
+  /blocks/{hash}:
+    get:
+      tags:
+        - "block"
+      summary: "Get sigle block based on specified hash"
+      operationId: "getBlock"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "hash"
+          type: "integer"
+          description: "Hash of the block"
+          required: true
+      responses:
+        "200":
+          description: "Get single block"
