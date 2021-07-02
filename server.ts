@@ -11,7 +11,7 @@ import HTTPError from "./utils/HTTPError";
 //   port: keys.redisPort,
 // });
 
-config();
+config({ path: "./config.env" });
 const server = express();
 server.use(
   cors({
