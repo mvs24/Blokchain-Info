@@ -1,10 +1,9 @@
-FROM node:14
+FROM node:alpine
 
-WORKDIR '/client'
+WORKDIR '/app'
 
 COPY ./package.json ./
 RUN npm install
-RUN npm install react-scripts@4.0.3 -g
 COPY . .
-CMD ["npm", "run", "build"]
 
+CMD ["npm", "run", "start"]

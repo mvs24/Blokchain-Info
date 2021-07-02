@@ -6,4 +6,4 @@ before_install:
   - docker build -t marius24/frontend-test -f ./frontend/Dockerfile.test ./frontend
 
 script:
-  - docker run marius24/frontend-test
+  - docker run marius24/frontend-test npm test -- --coverage
