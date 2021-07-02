@@ -49,4 +49,4 @@ There is a components folder that contains all ui components for the frontend.<b
 I have used react-table for rendering the table in the most efficient way.<br />
 In the hooks folder I have created useHttp hook for sending requests and keeping track of loadings & errors.<br />
 For styling I have used css modules & styled components.<br />
-I have used React.memo, useCallback & useMemo to improve performance on different part of the frontend.
+I have used React.memo, useCallback & useMemo to improve performance on different parts of the frontend.
