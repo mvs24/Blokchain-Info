@@ -28,7 +28,6 @@ const Table = ({ columns, data }) => {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell) => {
-                console.log(cell);
                 return cell.column.id === "hash" ? (
                   <td
                     className={classes.hashRow}

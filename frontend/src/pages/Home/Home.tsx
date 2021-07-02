@@ -28,7 +28,7 @@ const Home = () => {
     } catch (errorMessage) {
       setError(errorMessage);
     }
-  }, [page, limit]);
+  }, [page, limit, sendRequest]);
 
   useEffect(() => {
     getAllBlocks();

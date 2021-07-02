@@ -1,9 +1,15 @@
 import express, { NextFunction, Request, Response } from "express";
+// import redis from "redis";
 import { config } from "dotenv";
 import cors from "cors";
 import globalErrorHandler from "./controllers/error";
 import blocksRoute from "./routes/blocks";
 import HTTPError from "./utils/HTTPError";
+
+// const redisClient = redis.createClient({
+//   host: keys.redisHost,
+//   port: keys.redisPort,
+// });
 
 config();
 const server = express();

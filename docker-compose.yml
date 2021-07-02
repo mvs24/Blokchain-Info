@@ -1,9 +1,22 @@
-version: 3.8
+version: "3.8"
 services:
   backend:
     build: .
     ports:
       - "5000:5000"
     volumes:
-      - ./:app/
+      - ./:/app
       - /app/node_modules
+  redis:
+    image: "redis:latest"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/client
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - "3050:80"
