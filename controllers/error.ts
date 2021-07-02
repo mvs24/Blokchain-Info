@@ -33,6 +33,8 @@ const globalErrorHandler = (
   err.status = err.status || "error";
   err.statusCode = err.statusCode || 500;
 
+  console.log(process.env.NODE_ENV);
+
   if (process.env.NODE_ENV === "development") {
     sendErrorDevelopment(err, res);
   } else if (process.env.NODE_ENV === "production") {

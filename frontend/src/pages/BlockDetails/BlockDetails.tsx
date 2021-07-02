@@ -21,17 +21,18 @@ const BlockDetails = React.memo(() => {
     } catch (errorMessage) {
       setError(errorMessage);
     }
-  }, [hash]);
+  }, [hash, sendRequest]);
 
   useEffect(() => {
     getBlockDetails();
   }, [getBlockDetails]);
 
-  if (loading || !blockDetails) return <LoadingSpinner />;
-  if (error)
+  if (error) {
     return (
       <ErrorModal removeHandler={() => setError(undefined)}>{error}</ErrorModal>
     );
+  }
+  if (loading || !blockDetails) return <LoadingSpinner />;
 
   let blockDetailsToRender = [];
   const transactions = blockDetails!.tx;
@@ -48,7 +49,7 @@ const BlockDetails = React.memo(() => {
       <Button title="Go back!" onClick={() => history.push("/")} />
       <h2>Block Details: (hash: {hash})</h2>
       {blockDetailsToRender.map(({ attribute, value }) => (
-        <div>
+        <div key={attribute}>
           {attribute}: <span className={classes.blockDetailValue}>{value}</span>
         </div>
       ))}

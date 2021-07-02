@@ -51,7 +51,7 @@ const BlocksTable = React.memo((props: Props) => {
         })),
       },
     ],
-    []
+    [blockKeys]
   );
 
   return (
