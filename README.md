@@ -40,7 +40,7 @@ We need to configure travis-ci for this and create a Dockerrun.aws.json file for
 * On nginx/default.conf is the configuration for forwarding the traffic to server/client. There is also a Dockerfile to create the nginx container.<br />
 * Docker-compose.yaml contains the configuration for all the containers: frontend, backend, redis and nginx.<br />
 
-#Frontend Design.
+#Frontend Design.<br/>
 Everything starts on src/App.tsx.<br />
 I have used react-router-dom for routings.<br />
 There are 2 pages (Home which renders all blocks and BlockDetails which render info about one single block).<br />
