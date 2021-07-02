@@ -19,12 +19,10 @@ That's all. <br />
 #DESIGN OF THE PROJECT <br />
 In this project I have used Node.JS for backend together with TypeScript & React.JS for frontend with TypeScript.<br />
 
-BACKEND: <br />
+Backend<br />
 There are 2 endpoints: <br />
 1- GET: /api/v1/blocks (it accepts as query params: timestamp, page, limit) (To get all the blocks for the specified timestamp)<br />
 2- GET: /api/v1/blocks/:hash (to get one specific block)<br />
-
-#Backend Design:<br />
 Everything starts with an express server on server.ts file.<br />
 I have specified the /api/v1/blocks route and the code for this route is on controllers/blocks.ts.<br />
 * Error Handling: I have used global error handling with express.<br />
@@ -40,7 +38,7 @@ We need to configure travis-ci for this and create a Dockerrun.aws.json file for
 * On nginx/default.conf is the configuration for forwarding the traffic to server/client. There is also a Dockerfile to create the nginx container.<br />
 * Docker-compose.yaml contains the configuration for all the containers: frontend, backend, redis and nginx.<br />
 
-#Frontend Design.<br/>
+#Frontend<br/>
 Everything starts on src/App.tsx.<br />
 I have used react-router-dom for routings.<br />
 There are 2 pages (Home which renders all blocks and BlockDetails which render info about one single block).<br />
