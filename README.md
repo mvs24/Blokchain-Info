@@ -18,7 +18,7 @@ Now open the browser on: localhost:3050 (3050 on our host points to port 80 insi
 That's all. <br />
 
 #DESIGN OF THE PROJECT <br />
-In this project I have used Node.JS for backend together with TypeScript & React.JS for frontend with TypeScript.<br />
+In this project I have used Node.JS for the backend together with TypeScript & React.JS for the frontend with TypeScript.<br />
 
 Backend<br />
 There are 2 endpoints: <br />
