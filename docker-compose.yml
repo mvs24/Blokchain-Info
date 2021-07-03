@@ -8,6 +8,7 @@ services:
       - ./:/app
     environment:
       - REDIS_HOST=redis
+      - NODE_ENV=development
   redis:
     image: "redis"
   frontend:
